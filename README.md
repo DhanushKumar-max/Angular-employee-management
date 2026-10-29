@@ -1,59 +1,113 @@
-# AngularPractice
+# Angular Employee Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+## 📌 Project Overview
 
-## Development server
+The **Angular Employee Management System** is a web application developed using Angular and PrimeNG to manage employee information through a clean, user-friendly interface.
 
-To start a local development server, run:
+This project demonstrates Angular component development, form handling, validation, reusable UI components, and PrimeNG integration.
+
+## 🚀 Technologies Used
+
+- **Angular** – Frontend framework
+- **TypeScript** – Application logic
+- **PrimeNG** – UI components
+- **HTML5** – Page structure
+- **CSS3** – Styling
+- **Git & GitHub** – Version control and source code management
+
+## ✨ Features
+
+- Employee information management
+- Employee details displayed in a table
+- Add new employee records
+- Edit existing employee details
+- Form validation
+- Notifications for user actions
+- Reusable Angular components
+- Responsive user interface
+
+*Note: Keep only the features that are implemented in your current application.*
+
+## 📂 Project Structure
+
+```text
+src/
+└── app/
+    ├── employee-management/
+    │   ├── employee-management.ts
+    │   ├── employee-management.html
+    │   └── employee-management.css
+    ├── app.routes.ts
+    ├── app.component.ts
+    └── app.config.ts
+```
+
+*The folder and file names may differ depending on your Angular project setup.*
+
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Node.js
+- npm
+- Angular CLI
+- Visual Studio Code (recommended)
+
+### Step 1: Clone the repository
+
+```bash
+git clone https://github.com/DhanushKumar-max/Angular-employee-management.git
+```
+
+### Step 2: Navigate to the project folder
+
+```bash
+cd Angular-employee-management
+```
+
+### Step 3: Install dependencies
+
+```bash
+npm install
+```
+
+### Step 4: Run the application
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Step 5: Open in your browser
 
-## Code scaffolding
+Visit:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Concepts Practiced
 
-```bash
-ng generate --help
-```
+- Angular standalone components
+- Component-based architecture
+- Data binding
+- Event handling
+- Angular forms and validation
+- PrimeNG components and properties
+- Routing
+- Git version control
 
-## Building
+## 🎯 Project Objective
 
-To build the project run:
+The objective of this project is to strengthen practical knowledge of Angular and PrimeNG by building an employee management interface and applying frontend development concepts.
 
-```bash
-ng build
-```
+## 👨‍💻 Developer
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Dhanush Kumar V E**
 
-## Running unit tests
+- GitHub: https://github.com/DhanushKumar-max
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+⭐ If you find this project useful, feel free to explore the repository.
