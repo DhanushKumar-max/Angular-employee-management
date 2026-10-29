@@ -1,0 +1,21 @@
+{
+  "students": [
+    {
+      "name": "dhanush",
+      "age": "20",
+      "phone": "9515569733",
+      "mail": "dhanush@gmail.com",
+      "gender": "Female",
+      "id": "AptSm2HO8K0"
+    },
+    {
+      "name": "dhanush",
+      "age": "33",
+      "phone": "9515569733",
+      "mail": "dhanush@gmail.com",
+      "gender": "Male",
+      "id": "V1dzDW_Uqvk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

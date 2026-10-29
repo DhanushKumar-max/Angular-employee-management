@@ -1,0 +1,239 @@
+<div class="employee-container">
+  <h2>Employee Management System</h2>
+
+  <div class="filter-container">
+    <input pInputText type="text" placeholder="Search employee name..." [(ngModel)]="searchText" />
+
+    <p-select
+      [options]="departments"
+      [(ngModel)]="selectedDepartment"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="All Departments"
+      [showClear]="true"
+    />
+
+    <p-select
+      [options]="statuses"
+      [(ngModel)]="selectedStatus"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="All Statuses"
+      [showClear]="true"
+    />
+
+    <p-button
+      label="Clear Filters"
+      icon="pi pi-filter-slash"
+      severity="secondary"
+      [outlined]="true"
+      (onClick)="clearFilters()"
+    />
+  </div>
+
+  <p-table
+    [value]="filteredEmployees"
+    [paginator]="true"
+    [rows]="5"
+    [stripedRows]="true"
+    [showGridlines]="true"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    sortMode="single"
+    [rowHover]="true"
+  >
+  <!-- empty-message template -->
+  <ng-template #emptymessage>
+  <tr>
+    <td colspan="7">No employees found.</td>
+  </tr>
+</ng-template>
+
+
+    <ng-template #header>
+      <tr>
+        <th>Employee ID</th>
+        <th pSortableColumn="name">
+          Employee Name
+          <p-sorticon field="name" />
+        </th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-employee>
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.designation }}</td>
+        <td>
+          <span
+            class="status"
+            [class.active-status]="employee.status === 'Active'"
+            [class.inactive-status]="employee.status === 'Inactive'"
+          >
+            {{ employee.status }}
+          </span>
+        </td>
+        <td>
+      <p-button
+        label="Edit"
+        icon="pi pi-pencil"
+        severity="info"
+        (onClick)="editEmployee(employee)"
+      />
+
+      <p-button
+        label="Delete"
+        icon="pi pi-trash"
+        severity="danger"
+        (onClick)="deleteEmployee(employee.id)"
+      />
+    </td>
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="7">No employees found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- reactive form ---UI&error handling -->
+   <!-- Add-employee -->
+
+   
+<p-toast />
+
+<div class="employee-toolbar">
+  <h2>Employee Management System</h2>
+
+  <p-button
+    label="Add Employee"
+    icon="pi pi-plus"
+    (onClick)="openAddDialog()"
+  />
+</div>
+
+<p-dialog
+  header="Add Employee"
+  [(visible)]="dialogVisible"
+  [modal]="true"
+  [style]="{ width: '450px' }"
+  [draggable]="false"
+  [resizable]="false">
+
+  <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+
+    <div class="form-field">
+      <label for="name">Employee Name</label>
+
+      <input
+        pInputText
+        id="name"
+        formControlName="name"
+        class="w-full"
+      />
+
+      @if (employeeForm.controls.name.touched &&
+           employeeForm.controls.name.hasError('required')) {
+        <small class="error">Employee name is required.</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email</label>
+
+      <input
+        pInputText
+        id="email"
+        type="email"
+        formControlName="email"
+        class="w-full"
+      />
+
+      @if (employeeForm.controls.email.touched &&
+           employeeForm.controls.email.hasError('required')) {
+        <small class="error">Email is required.</small>
+      } @else if (employeeForm.controls.email.touched &&
+                  employeeForm.controls.email.hasError('email')) {
+        <small class="error">Enter a valid email address.</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="department">Department</label>
+
+      <p-select
+        inputId="department"
+        [options]="departmentOptions"
+        optionLabel="label"
+        optionValue="value"
+        formControlName="department"
+        placeholder="Select department"
+        [style]="{ width: '100%' }"
+      />
+
+      @if (employeeForm.controls.department.touched &&
+           employeeForm.controls.department.hasError('required')) {
+        <small class="error">Department is required.</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="designation">Designation</label>
+
+      <input
+        pInputText
+        id="designation"
+        formControlName="designation"
+        class="w-full"
+      />
+
+      @if (employeeForm.controls.designation.touched &&
+           employeeForm.controls.designation.hasError('required')) {
+        <small class="error">Designation is required.</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="status">Status</label>
+
+      <p-select
+        inputId="status"
+        [options]="statusOptions"
+        optionLabel="label"
+        optionValue="value"
+        formControlName="status"
+        [style]="{ width: '100%' }"
+      />
+    </div>
+
+    <div class="form-actions">
+      <p-button
+        label="Cancel"
+        severity="secondary"
+        [outlined]="true"
+        type="button"
+        (onClick)="dialogVisible = false"
+      />
+
+      <p-button
+        label="Save Employee"
+        icon="pi pi-check"
+        type="submit"
+      />
+    </div>
+
+  </form>
+</p-dialog>
+
+
+
+</div>
